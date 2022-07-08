@@ -90,18 +90,30 @@ WSGI_APPLICATION = 'iknow.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+if DEBUG:
 
-DATABASES = {
-## Enable postgres when in production mode
+    DATABASES = {
+    ## Enable postgres when in production mode
 
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-        #'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iknowblog.sqlite3',
-        #'USER': 'iknow',
-        #'PASSWORD': '12345asdfg',
+        'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'iknowblog.sqlite3',
+        }
     }
-}
+
+else:
+    DATABASES = {
+    ## Enable postgres when in production mode
+
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'iknowdb',
+            'USER': 'courage',
+            'PASSWORD': '#aVVCz=3437-"$NX5EW;RQC7L3K`[c`x,]UpWhdW',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
 
 # Password validation
