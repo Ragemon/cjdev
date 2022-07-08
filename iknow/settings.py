@@ -156,7 +156,7 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
-# AUTH_USER_MODEL = 'my_user.User'
+AUTH_USER_MODEL = 'my_user.User'
 
 TAILWIND_APP_NAME = 'themetailwind'
 NPM_BIN_PATH=(r"C:\Program Files\nodejs\npm.cmd")
