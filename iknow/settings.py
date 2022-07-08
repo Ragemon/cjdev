@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'taggit',
     'blog.apps.BlogConfig',
     ## Enable in production mode
-    # 'my_user',
+    'my_user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

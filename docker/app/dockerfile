@@ -1,0 +1,14 @@
+# base image
+FROM python:3.10.2-slim-bullseye
+# set environment variables
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PYTHONDONTWRTIEBYTECODE=1
+ENV PYTHONNUNBUFFERED=1
+# set workdir
+WORKDIR /code
+# copy requirements.txt to work dir
+COPY requirements.txt .
+# from requirements.txt install the various libraries
+RUN pip install -r requirements.txt
+# copy everything from local into container in the workdir
+COPY . .
