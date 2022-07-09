@@ -93,8 +93,6 @@ WSGI_APPLICATION = 'iknow.wsgi.application'
 
 if DEBUG:
     DATABASES = {
-    ## Enable postgres when in production mode
-
         'default': {
         'ENGINE': 'django.db.backends.sqlite3',
             'NAME': 'iknowblog.sqlite3',
@@ -108,8 +106,8 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'iknowdb',
             'USER': 'courage',
-            'PASSWORD': '12345asdfg',
-            'HOST': '',
+            'PASSWORD': '#aVVCz=3437-"$NX5EW;RQC7L3K`[c`x,]UpWhdW',
+            'HOST': 'localhost',
             'PORT': '',
         }
     }
@@ -158,10 +156,10 @@ TAGGIT_CASE_INSENSITIVE = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-     os.path.join(BASE_DIR, 'staticfiles'),
+# STATICFILES_DIRS = [
+#      os.path.join(BASE_DIR, 'staticfiles'),
    
-]
+# ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
