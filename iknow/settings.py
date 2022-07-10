@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import pathlib
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,11 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jotaz%6-q121dkfd05l8e&0y(0swvpsub0*=j6u-ohva9867(0'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = env("DEBUG_BOOL")
 ALLOWED_HOSTS = ['127.0.0.1','aeae312e.ngrok.io','aeae312e.ngrok.io', '188.166.145.169']
 
 
@@ -44,12 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     'tinymce',
     'django_summernote',
-    "django_browser_reload",
+    
     'tailwind',
     'themetailwind',
+    "django_browser_reload",
+
     
 ]
 
@@ -90,8 +94,7 @@ WSGI_APPLICATION = 'iknow.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-if DEBUG:
+if DEBUG == True:
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -103,11 +106,11 @@ else:
     ## Enable postgres when in production mode
 
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'iknowdb',
-            'USER': 'courage',
-            'PASSWORD': '#aVVCz=3437-"$NX5EW;RQC7L3K`[c`x,]UpWhdW',
-            'HOST': 'localhost',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': env('DATABASE_NAME'),
+            'USER': env('DATABASE_USER'),
+            'PASSWORD': env('DATABASE_PASSWORD'),
+            'HOST': env('DATABASE_HOST'),
             'PORT': '',
         }
     }
@@ -167,7 +170,13 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'my_user.User'
 
 TAILWIND_APP_NAME = 'themetailwind'
-NPM_BIN_PATH=(r"C:\Program Files\nodejs\npm.cmd")
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
+if DEBUG == True:
+    NPM_BIN_PATH=(r"C:\Program Files\nodejs\npm.cmd")
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
+else:
+    NPM_BIN_PATH=(r"npm")
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
