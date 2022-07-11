@@ -56,8 +56,7 @@ INSTALLED_APPS = [
 
     
 ]
-if DEBUG == True:
-    INSTALLED_APPS += "django_browser_reload",
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,8 +66,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
+if DEBUG == True:
+    INSTALLED_APPS += "django_browser_reload"
+    MIDDLEWARE += "django_browser_reload.middleware.BrowserReloadMiddleware"
 
 ROOT_URLCONF = 'iknow.urls'
 
