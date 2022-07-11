@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 
+from iknow.iknow.settings import DEBUG
+
 
 
 
@@ -13,7 +15,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('summernote/', include('django_summernote.urls')),
     # automatic browser reloader
-    path("__reload__/", include("django_browser_reload.urls")),
+
+    
     
 
 ]
@@ -23,8 +26,9 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
-if settings.DEBUG:
+if settings.DEBUG == True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += path("__reload__/", include("django_browser_reload.urls"))
 
 urlpatterns += staticfiles_urlpatterns()
 

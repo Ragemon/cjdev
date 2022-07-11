@@ -52,10 +52,12 @@ INSTALLED_APPS = [
     
     'tailwind',
     'themetailwind',
-    "django_browser_reload",
+    
 
     
 ]
+if DEBUG == True:
+    INSTALLED_APPS += "django_browser_reload",
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
