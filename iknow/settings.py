@@ -97,13 +97,18 @@ WSGI_APPLICATION = 'iknow.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-if DEBUG == True:
+if DEBUG:
+    print(True, "tailwind development")
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.sqlite3',
             'NAME': 'iknowblog.sqlite3',
         }
     }
+    NPM_BIN_PATH=r"C:\Program Files\nodejs\npm.cmd"
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
 else:
     DATABASES = {
     ## Enable postgres when in production mode
@@ -117,6 +122,11 @@ else:
             'PORT': '',
         }
     }
+    print(DEBUG, "tailwind Production")
+    NPM_BIN_PATH=(r"npm")
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -173,13 +183,6 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'my_user.User'
 
 TAILWIND_APP_NAME = 'themetailwind'
-if DEBUG == True:
-    NPM_BIN_PATH=(r"C:\Program Files\nodejs\npm.cmd")
-    INTERNAL_IPS = [
-        '127.0.0.1',
-    ]
-else:
-    NPM_BIN_PATH=(r"npm")
-    INTERNAL_IPS = [
-        '127.0.0.1',
-    ]
+
+
+    
