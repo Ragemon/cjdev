@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, BlogPost
+from django.db import models
 # Register your models here.
 
 from django_summernote.admin import SummernoteModelAdmin
-
+from tinymce.widgets import TinyMCE
 
 
 # Apply summernote to all TextField in model.
@@ -20,5 +21,10 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
     list_filter = ['update', 'status']
 
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ['header']
+    formfield_overrides = { models.TextField: {'widget': TinyMCE()}
+}
+admin.site.register(BlogPost, BlogPostAdmin)
 
 admin.site.register(Post, PostAdmin)

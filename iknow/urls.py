@@ -5,6 +5,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
+
 urlpatterns = []
 if settings.DEBUG == True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -13,17 +17,15 @@ if settings.DEBUG == True:
 
 
 urlpatterns += [
-    path('admin/', admin.site.urls),
-    
+    path('django-admin/', admin.site.urls),
+    path("admin/", include(wagtailadmin_urls)),
     path('', include('blog.urls')),
 
     # path('blog/', include('blog.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('tinymce/', include('tinymce.urls')),
     # automatic browser reloader
-
-    
+    path("documents/", include(wagtaildocs_urls)),   
     
 
 ]

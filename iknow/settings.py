@@ -52,10 +52,22 @@ INSTALLED_APPS = [
     
     'tailwind',
     'themetailwind',
+    "wagtail.admin",
+    "wagtail",
+    "wagtail.documents",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail.snippets",
+    "wagtail.images",
+    "modelcluster",
     
 
     
 ]
+
 
 
 MIDDLEWARE = [
@@ -66,6 +78,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+
 ]
 if DEBUG == True:
     INSTALLED_APPS += "django_browser_reload"
@@ -172,6 +186,14 @@ TAGGIT_CASE_INSENSITIVE = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
+
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 # STATICFILES_DIRS = [
 #      os.path.join(BASE_DIR, 'static'),
    
@@ -184,5 +206,45 @@ AUTH_USER_MODEL = 'my_user.User'
 
 TAILWIND_APP_NAME = 'themetailwind'
 
+# Search
+# https://docs.wagtail.org/en/stable/topics/search/backends.html
+WAGTAILSEARCH_BACKENDS = {
+    "default": {
+        "BACKEND": "wagtail.search.backends.database",
+    }
+}
 
-    
+# Base URL to use when referring to full URLs within the Wagtail admin backend -
+# e.g. in notification emails. Don't include '/admin' or a trailing slash
+WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAIL_SITE_NAME = "DeepSyntax"
+
+TINYMCE_DEFAULT_CONFIG = {
+
+   'height': 360,
+   'width': 1120,
+   'cleanup_on_startup': True,
+   'custom_undo_redo_levels': 20,
+   'selector': 'textarea',
+#    'theme': 'modern',
+   'plugins': '''
+   textcolor save link image media preview codesample contextmenu
+   table code lists fullscreen insertdatetime nonbreaking
+   contextmenu directionality searchreplace wordcount visualblocks
+   visualchars code fullscreen autolink lists charmap print hr
+   anchor pagebreak
+   ''',
+   'toolbar1': '''
+   fullscreen preview bold italic underline | fontselect,
+   fontsizeselect | forecolor backcolor | alignleft alignright |
+   aligncenter alignjustify | indent outdent | bullist numlist table |
+   | link image media | codesample |
+   ''',
+   'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor | code |
+            ''',
+   'contextmenu': 'formats | link image',
+   'menubar': True,
+   'statusbar': True,
+   }

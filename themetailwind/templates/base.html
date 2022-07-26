@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style_boot.css' %}">
     	<link rel="icon" type="image/icon" href="{% static '/img/favicon.ico' %}">
 		<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
+		<link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet">
 		{% tailwind_css %}
 	</head>
 	
@@ -36,5 +37,6 @@
 			
 		</div>
 		<script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+		<script src="{% static 'tinymce/js/prism.js' %}"></script>
 	</body>
 </html>
