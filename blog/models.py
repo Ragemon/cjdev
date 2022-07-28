@@ -94,12 +94,13 @@ class BlogPost(Page):
 ##install Pillow from pip install Pillow to use image
     post_image = models.ImageField(upload_to='postimages',blank=True)
     tags = TaggableManager()
-    content = models.TextField()
+    content = RichTextField()
     subcontent = models.TextField(blank=True, max_length=450)
     
 
     content_panels = Page.content_panels + [
-        FieldPanel("content")
+        FieldPanel("content", classname="full"),
+        FieldPanel("category", classname="full")
     ]
 
 

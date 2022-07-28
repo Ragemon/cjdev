@@ -29,7 +29,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG_BOOL")
-ALLOWED_HOSTS = ['127.0.0.1','aeae312e.ngrok.io','aeae312e.ngrok.io', '188.166.145.169']
+ALLOWED_HOSTS = ['127.0.0.1', '159.223.145.231', 'deepsytax.org', 'www.deepsyntax.org']
 
 
 
@@ -63,8 +63,6 @@ INSTALLED_APPS = [
     "wagtail.snippets",
     "wagtail.images",
     "modelcluster",
-    
-
     
 ]
 
