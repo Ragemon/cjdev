@@ -25,6 +25,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = ['header']
     formfield_overrides = { models.TextField: {'widget': TinyMCE()}
 }
-admin.site.register(BlogPost, BlogPostAdmin)
+
+#admin.site.register(BlogPost, BlogPostAdmin)
 
 admin.site.register(Post, PostAdmin)
