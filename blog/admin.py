@@ -3,7 +3,6 @@ from .models import Post, BlogPost
 from django.db import models
 # Register your models here.
 
-from django_summernote.admin import SummernoteModelAdmin
 from tinymce.widgets import TinyMCE
 
 
