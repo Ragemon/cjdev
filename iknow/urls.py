@@ -5,9 +5,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-# from wagtail.admin import urls as wagtailadmin_urls
-# from wagtail import urls as wagtail_urls
-# from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = []
 if settings.DEBUG == True:
@@ -23,8 +20,9 @@ urlpatterns += [
 
     # path('blog/', include('blog.urls')),
     path('tinymce/', include('tinymce.urls')),
+    
     # automatic browser reloader
-    # path("documents/", include(wagtaildocs_urls)),   
+    
     
 
 ]
@@ -43,6 +41,5 @@ def example_test_func(request):
         return request.user.groups.filter(name='group_name').exists()
     
     
-
 
 

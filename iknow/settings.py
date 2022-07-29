@@ -52,18 +52,7 @@ INSTALLED_APPS = [
     
     'tailwind',
     'themetailwind',
-    # "wagtail.admin",
-    # "wagtail",
-    # "wagtail.documents",
-    # "wagtail.contrib.forms",
-    # "wagtail.contrib.redirects",
-    # "wagtail.embeds",
-    # "wagtail.sites",
-    # "wagtail.users",
-    # "wagtail.snippets",
-    # "wagtail.images",
-    # "modelcluster",
-    
+       
 ]
 
 
@@ -204,18 +193,7 @@ AUTH_USER_MODEL = 'my_user.User'
 
 TAILWIND_APP_NAME = 'themetailwind'
 
-# Search
-# https://docs.wagtail.org/en/stable/topics/search/backends.html
-# WAGTAILSEARCH_BACKENDS = {
-#     "default": {
-#         "BACKEND": "wagtail.search.backends.database",
-#     }
-# }
 
-# Base URL to use when referring to full URLs within the Wagtail admin backend -
-# e.g. in notification emails. Don't include '/admin' or a trailing slash
-# WAGTAILADMIN_BASE_URL = "http://example.com"
-# WAGTAIL_SITE_NAME = "DeepSyntax"
 
 TINYMCE_DEFAULT_CONFIG = {
 
