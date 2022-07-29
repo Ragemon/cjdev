@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, BlogPost
+# from .models import Post, BlogPost
 from django.db import models
 # Register your models here.
 
@@ -20,10 +20,10 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
     list_filter = ['update', 'status']
 
-class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ['header']
-    formfield_overrides = { models.TextField: {'widget': TinyMCE()}
-}
+# class BlogPostAdmin(admin.ModelAdmin):
+#     list_display = ['header']
+#     formfield_overrides = { models.TextField: {'widget': TinyMCE()}
+# }
 
 #admin.site.register(BlogPost, BlogPostAdmin)
 
