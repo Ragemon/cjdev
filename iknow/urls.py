@@ -24,7 +24,7 @@ urlpatterns += [
     # path('blog/', include('blog.urls')),
     path('tinymce/', include('tinymce.urls')),
     # automatic browser reloader
-    path("documents/", include(wagtaildocs_urls)),   
+    # path("documents/", include(wagtaildocs_urls)),   
     
 
 ]
