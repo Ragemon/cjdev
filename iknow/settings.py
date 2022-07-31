@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG_BOOL")
 print(type(DEBUG))
-ALLOWED_HOSTS = ['127.0.0.1', '159.223.145.231', 'deepsytax.org', 'www.deepsyntax.org']
+ALLOWED_HOSTS = ['127.0.0.1', 'deepsytax.org', 'www.deepsyntax.org']
 
 
 
