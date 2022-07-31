@@ -29,6 +29,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG_BOOL")
+print(type(DEBUG))
 ALLOWED_HOSTS = ['127.0.0.1', '159.223.145.231', 'deepsytax.org', 'www.deepsyntax.org']
 
 
@@ -98,8 +99,8 @@ WSGI_APPLICATION = 'iknow.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-if DEBUG:
-    print(True, "tailwind development")
+if DEBUG == True:
+    print(DEBUG, "tailwind development for database")
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -120,7 +121,7 @@ else:
             'USER': env('DATABASE_USER'),
             'PASSWORD': env('DATABASE_PASSWORD'),
             'HOST': env('DATABASE_HOST'),
-            'PORT': '',
+            'PORT': env("DATABASE_PORT")
         }
     }
     print(DEBUG, "tailwind Production")
