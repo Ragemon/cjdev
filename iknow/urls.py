@@ -15,7 +15,7 @@ if settings.DEBUG == True:
 
 urlpatterns += [
     path('django-admin/', admin.site.urls),
-    path('/', include('blog.urls')),
+    path('', include('blog.urls')),
 
     # path('blog/', include('blog.urls')),
     path('tinymce/', include('tinymce.urls')),
