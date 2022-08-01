@@ -15,7 +15,6 @@ if settings.DEBUG == True:
 
 urlpatterns += [
     path('django-admin/', admin.site.urls),
-    path("admin/", include(wagtailadmin_urls)),
     path('edublog', include('blog.urls')),
 
     # path('blog/', include('blog.urls')),

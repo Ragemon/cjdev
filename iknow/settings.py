@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
-
-    'wagtail',
     'tailwind',
     'themetailwind',
        
@@ -66,8 +64,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
-
 ]
 if DEBUG == True:
     INSTALLED_APPS += "django_browser_reload"
