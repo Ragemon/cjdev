@@ -222,3 +222,17 @@ TINYMCE_DEFAULT_CONFIG = {
    'menubar': True,
    'statusbar': True,
    }
+
+
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+TINYMCE_EXTRA_MEDIA = {
+    'css': {
+        'all': [
+            ...
+        ],
+    },
+    'js': [
+        ...
+    ],
+}
