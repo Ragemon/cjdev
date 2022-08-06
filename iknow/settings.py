@@ -231,6 +231,6 @@ TINYMCE_SPELLCHECKER = True
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "/tinymce")
 # TINYMCE_JS_URL = 'http://cdn.tinymce.com/4/tinymce.min.js'
 # TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/arhsp0g09j7sgm4c0n24ce7t2j5ludxxy8ul3r5xcdpiwmh5/tinymce/5/tinymce.min.js'
-# TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
 TINYMCE_COMPRESSOR = False
 # TINYMCE_EXTRA_MEDIA = {'css': {'all': []},'js':[]}
