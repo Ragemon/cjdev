@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'iknow.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-if DEBUG == True:
+if DEBUG == "True":
     print(DEBUG, "tailwind development for database")
     DATABASES = {
         'default': {
@@ -195,24 +195,24 @@ TAILWIND_APP_NAME = 'themetailwind'
 
 TINYMCE_DEFAULT_CONFIG = {
 
-   'height': 360,
+   'height': 560,
    'width': 1120,
    'cleanup_on_startup': True,
    'custom_undo_redo_levels': 20,
    'selector': 'textarea',
-#    'theme': 'modern',
+   'theme': 'silver',
    'plugins': '''
    textcolor save link image media preview codesample contextmenu
-   table code lists fullscreen insertdatetime nonbreaking
-   contextmenu directionality searchreplace wordcount visualblocks
-   visualchars code fullscreen autolink lists charmap print hr
-   anchor pagebreak
+   table code advlist lists fullscreen insertdatetime nonbreaking
+   directionality searchreplace wordcount visualblocks visualchars
+   autolink  charmap print hr anchor pagebreak paste  help  
+   spellchecker
    ''',
    'toolbar1': '''
    fullscreen preview bold italic underline | fontselect,
    fontsizeselect | forecolor backcolor | alignleft alignright |
    aligncenter alignjustify | indent outdent | bullist numlist table |
-   | link image media | codesample |
+   | link image media | codesample | removeformat | help
    ''',
    'toolbar2': '''
             visualblocks visualchars |
@@ -221,18 +221,16 @@ TINYMCE_DEFAULT_CONFIG = {
    'contextmenu': 'formats | link image',
    'menubar': True,
    'statusbar': True,
+   'style_formats': [
+            {'title':'numlist', 'items': [{'list-style-type':'armanian',}]},
+    ]
    }
 
 
 TINYMCE_SPELLCHECKER = True
-TINYMCE_COMPRESSOR = True
-TINYMCE_EXTRA_MEDIA = {
-    'css': {
-        'all': [
-            ...
-        ],
-    },
-    'js': [
-        ...
-    ],
-}
+TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "/tinymce")
+# TINYMCE_JS_URL = 'http://cdn.tinymce.com/4/tinymce.min.js'
+# TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/arhsp0g09j7sgm4c0n24ce7t2j5ludxxy8ul3r5xcdpiwmh5/tinymce/5/tinymce.min.js'
+# TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
+TINYMCE_COMPRESSOR = False
+# TINYMCE_EXTRA_MEDIA = {'css': {'all': []},'js':[]}

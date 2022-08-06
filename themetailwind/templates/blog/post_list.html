@@ -2,12 +2,12 @@
 {% block body %}
 
 <div class="flex flex-col md:flex-row lg:gap-x-7 lg:gap-y-9 gap-x-3 gap-y-4 align-center "><!-- I am content last-->
-  <div class="md:basis-3/12  order-last md:order-first"><!--NOTIFICATION-->
+  <div class="md:basis-2/12  order-last md:order-first"><!--NOTIFICATION-->
     {% block notification %}
     <!-- {% include "blog/notification.html" %} -->
     {% endblock %}
   </div><!--NOTIFICATION-->
-  <div class="md:basis-6/12 order-first md:order-second grow"><!--CONTENT-->
+  <div class="md:basis-7/12 bg-blue-300 order-first md:order-second grow"><!--CONTENT-->
     {% block content%}
       {% include "blog/content.html" %}
     {% endblock %}

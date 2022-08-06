@@ -42,7 +42,7 @@ class Post(models.Model):
 ##install Pillow from pip install Pillow to use image
     post_image = models.ImageField(upload_to='postimages',blank=True)
     tags = TaggableManager()
-    content = tinymce_models.HTMLField()
+    content = models.TextField()
     subcontent = models.TextField(blank=True, max_length=450)
     
     def __str__(self):

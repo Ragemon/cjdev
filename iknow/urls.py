@@ -27,10 +27,10 @@ urlpatterns += [
 ]
 
 
-
+print("urls start")
 urlpatterns += staticfiles_urlpatterns()
 
-
+print("urls end")
 
     # test_func in summernote upload view. (Allow upload images only when user passes the test)
     # https://docs.djangoproject.com/en/2.2/topics/auth/default/#django.contrib.auth.mixins.UserPassesTestMixin

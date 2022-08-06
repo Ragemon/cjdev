@@ -1,6 +1,6 @@
 
-    {% for obj in object_list %}
-      <div class="md:mb-5 md:border mt-5 flex flex-col shadow-md md:mb-5 bg-white-900">
+{% for obj in object_list %}
+  <div class="md:mb-5 md:border mt-5 flex flex-col shadow-md md:mb-5 bg-white-900">
         <div class="font-bold font-xl text-black px-4">
           <a href="{% url 'blog:article_detail' obj.id obj.slug %}" id="" >
             {{ obj.title|title }} 
@@ -17,13 +17,12 @@
         <div class="text-sm text-gray-600 tracking-wider leading-7 px-5 py-4">
           <a href="{% url 'blog:article_detail' obj.id obj.slug %}" >
             {% autoescape on %}
-            {{ obj.content|truncatewords:45|safe }}
+            {{ obj.content|truncatewords:45|safe }} <span class="hover:text-sm">read more</span>
             {% endautoescape %}
-            <span class="hover:text-sm">read more</span>
           </a>
         </div>
        <!--End of post-content div-->
-        {% if obj.post_image %}
+      {% if obj.post_image %}
         <div class="flex flex-wrap justify-center bg-cover overflow-hidden h-auto max-w-full">
           <img
           src="{{ obj.post_image.url }}"
@@ -31,10 +30,10 @@
           alt="post-thumbnail"
           />
         </div>
-        {% endif %}
-      </div><!-- /.blog-post -->
+      {% endif %}
+  </div><!-- /.blog-post -->
      
-    {% endfor %}
+{% endfor %}
     
       <hr>
       <p>

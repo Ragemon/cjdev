@@ -1,7 +1,7 @@
 {% load static tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
     <title>
 		{% block title %}
@@ -12,13 +12,14 @@
 		{% endblock %}
 
 	</title>
+		<!-- <script src="https://cdn.tiny.cloud/1/arhsp0g09j7sgm4c0n24ce7t2j5ludxxy8ul3r5xcdpiwmh5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style_boot.css' %}">
     	<link rel="icon" type="image/icon" href="{% static '/img/favicon.ico' %}">
-		<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
-		<!-- <link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet"> -->
+		<!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" /> -->
+		<link href='{% static "tinymce/css/prism.css" %}' rel="stylesheet">
 		{% tailwind_css %}
 	</head>
 	
@@ -45,6 +46,18 @@
 			
 		</div>
 		<script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
-		<!-- <script src="{% static 'tinymce/js/prism.js' %}"></script> -->
+		<script src="{% static 'tinymce/js/prism.js' %}"></script>
+		<!-- <script>
+			tinymce.init({
+			  selector: 'textarea',
+			  plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+			  toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+			  toolbar_mode: 'floating',
+			  tinycomments_mode: 'embedded',
+			  tinycomments_author: 'Author name',
+			});
+		  </script> -->
+
+		  <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
 	</body>
 </html>
