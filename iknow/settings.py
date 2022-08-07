@@ -209,7 +209,7 @@ TINYMCE_DEFAULT_CONFIG = {
    spellchecker
    ''',
    'toolbar1': '''
-   fullscreen preview bold italic underline | fontselect,
+   fullscreen preview bold italic underline | styleselect fontselect,
    fontsizeselect | forecolor backcolor | alignleft alignright |
    aligncenter alignjustify | indent outdent | bullist numlist table |
    | link image media | codesample | removeformat | help
