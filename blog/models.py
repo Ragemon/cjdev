@@ -20,12 +20,12 @@ class Post(models.Model):
     )
     CATEGORY_CHOICES = (
         ('blog','Blog'),
-        ('song','Song'),
+        ('snippet','Snippet'),
         ('other', 'Other'),
     )
     title = models.CharField(max_length=120)
     
-    author = models.CharField(default='Courage', max_length=150)
+    author = models.CharField(default='CJdev', max_length=150)
     created = models.DateTimeField(auto_now=False,
                                      auto_now_add=True,
                                    null=True)
@@ -43,7 +43,7 @@ class Post(models.Model):
     post_image = models.ImageField(upload_to='postimages',blank=True)
     tags = TaggableManager()
     content = models.TextField()
-    subcontent = models.TextField(blank=True, max_length=450)
+    subcontent = models.TextField(blank=True, max_length=1000)
     
     def __str__(self):
         return self.title

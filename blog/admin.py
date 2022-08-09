@@ -10,10 +10,10 @@ from tinymce.widgets import TinyMCE
 
 class PostAdmin(admin.ModelAdmin):
     
-    list_display = ['title','update','created','status' ]
+    list_display = ['title','update','created','status', 'category', ]
     prepopulated_fields = {'slug':('title',)}
     search_fields = ['title', 'content']
-    list_filter = ['update', 'status']
+    list_filter = ['update', 'status', 'category']
     formfield_overrides = {
         models.TextField: {
             'widget': TinyMCE
