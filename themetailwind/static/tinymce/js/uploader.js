@@ -1,6 +1,6 @@
 tinymce.init({
   height: 560,
-  width: 1120,
+  width: 1000,
   cleanup_on_startup: true,
   custom_undo_redo_levels: 20,
   theme: 'silver',
