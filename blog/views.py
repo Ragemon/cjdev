@@ -14,6 +14,19 @@ def post_create(request):
     template = ('blog/home.html')
     return render(request, template)
 
+class SnippetDetailView(DetailView):
+    queryset = Post.objects.filter(status='published', category='snippet')
+    template_name = ('blog/post_detail.html')
+
+
+class SnippetListView(ListView):
+    model = Post
+    queryset = Post.objects.filter(
+        status='published', category='snippet').order_by('-update').order_by('-update')
+
+    template_name = ('blog/post_list.html')
+    paginate_by = 4
+
 class ArticleDetailView(DetailView):
     queryset = Post.objects.filter(status='published', category='blog')
     template_name = ('blog/post_detail.html')
@@ -28,18 +41,7 @@ class ArticleListView(ListView):
     paginate_by = 4
 
 
-class SnippetDetailView(DetailView):
-    queryset = Post.objects.filter(status='published', category='snippet')
-    template_name = ('blog/post_detail.html')
 
-
-class SnippetListView(ListView):
-    model = Post
-    queryset = Post.objects.filter(
-        status='published', category='snippet').order_by('-update')
-
-    template_name = ('blog/post_list.html')
-    paginate_by = 4
 
 
 def post_update(request):

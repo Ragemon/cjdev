@@ -1,5 +1,6 @@
 
 {% for obj in object_list %}
+{% if obj.category == "blog" %}
   <div class="md:mb-5 md:border mt-5 flex flex-col shadow-md md:mb-5 bg-white-900">
         <div class="font-bold font-xl text-black px-4">
           <a href="{% url 'blog:article_detail' obj.id obj.slug %}" id="" >
@@ -32,7 +33,40 @@
         </div>
       {% endif %}
   </div><!-- /.blog-post -->
-     
+  {% else %}
+  <div class="md:mb-5 md:border mt-5 flex flex-col shadow-md md:mb-5 bg-white-900">
+    <div class="font-bold font-xl text-black px-4">
+      <a href="{% url 'blog:snippet_detail' obj.id obj.slug %}" id="" >
+        {{ obj.title|title }} 
+      </a>
+    </div>
+    <p></p>
+    <span class="text-gray-500 text-xs p-4">
+      {% for tag in obj.tags.all %}
+        <a href="#!" class="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 dark:hover:bg-blue-300">{{ tag }}</a>
+      {% endfor %}
+      {{ obj.created|date }}
+    </span>
+        
+    <div class="text-sm text-gray-600 tracking-wider leading-7 px-5 py-4">
+      <a href="{% url 'blog:snippet_detail' obj.id obj.slug %}" >
+        {% autoescape on %}
+        {{ obj.content|truncatewords:45|safe }} <span class="hover:text-sm">read more</span>
+        {% endautoescape %}
+      </a>
+    </div>
+   <!--End of post-content div-->
+  {% if obj.post_image %}
+    <div class="flex flex-wrap justify-center bg-cover overflow-hidden h-auto max-w-full">
+      <img
+      src="{{ obj.post_image.url }}"
+      class=""
+      alt="post-thumbnail"
+      />
+    </div>
+  {% endif %}
+</div><!-- /.blog-post -->
+  {% endif %}
 {% endfor %}
     
       <hr>

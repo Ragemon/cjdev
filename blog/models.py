@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
 from tinymce import models as tinymce_models
-
-
+from tinymce.widgets import TinyMCE as tinymce_widgets
+from django import forms
 
 # Create your models here.
 from django.urls import reverse
-
+    
 
 class Post(models.Model):
     STATUS_CHOICES = (
@@ -44,7 +44,7 @@ class Post(models.Model):
     tags = TaggableManager()
     content = models.TextField()
     subcontent = models.TextField(blank=True, max_length=1000)
-    
+
     def __str__(self):
         return self.title
 
@@ -57,8 +57,10 @@ class Post(models.Model):
     class meta:
         ordering = ['id']
 
-    
 
 
 
-
+class PostContent(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    header = models.TextField()
+    body = models.TextField()
