@@ -4,13 +4,12 @@
 <html lang="en" class="scroll-smooth">
 	<head>
     <title>
-		{% block title %}
-			{% if object.title %} 
-				{{ object.title }} : 
-			{% endif %}
-			DeepSyntax 
-		{% endblock %}
-
+	{% block title %}
+		{% if object.title %} 
+			{{ object.title }} : 
+		{% endif %}
+		DeepSyntax 
+	{% endblock %}
 	</title>
 		<!-- <script src="https://cdn.tiny.cloud/1/arhsp0g09j7sgm4c0n24ce7t2j5ludxxy8ul3r5xcdpiwmh5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
 		<meta charset="UTF-8">
@@ -20,9 +19,10 @@
 		<meta name="description" content="{{object.subcontent|striptags}}">
 		<meta property="article:published_time" content="{{object.created|striptags}}" >
 		<meta property="article:modified_time" content="{{object.update|striptags}}">
-		<meta name="keywords" content="programming, software engineering, python, JavaScript, html, css, golang, react">
+		<meta name="keywords" content="politics, economy, lifestyle, life, and, relationships">
 		<meta name="author" content="cjdev">
 		<meta property="og:type" content="article">
+		<meta property="og:title" content="{{object.title|safe}}">
 		<meta property="og:url" content="{{ request.get_host }}{{ request.path_info }}">
 		<meta property="og:site_name" content="DeepSyntax">
 		
