@@ -16,12 +16,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="title" content={{object.title|safe}}>
-		<meta name="description" content={{object.subcontent}}>
-		<meta property="article:published_time" content={{object.created|striptags}} >
-		<meta property="article:modified_time" content={{object.update|striptags}}>
+		<meta name="title" content="{{object.title|safe}}">
+		<meta name="description" content="{{object.subcontent|striptags}}">
+		<meta property="article:published_time" content="{{object.created|striptags}}" >
+		<meta property="article:modified_time" content="{{object.update|striptags}}">
 		<meta name="keywords" content="programming, software engineering, python, JavaScript, html, css, golang, react">
 		<meta name="author" content="cjdev">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="{{ request.get_host }}{{ request.path_info }}">
+		<meta property="og:site_name" content="DeepSyntax">
 		
 		<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style_boot.css' %}">
 		<link rel="icon" type="image/icon" href="{% static '/img/favicon.ico' %}">
@@ -31,7 +34,7 @@
 		{% tailwind_css %}
 	</head>
 	
-	<body class="bg-gray-100 w-full h-screen font-leading-normal tracking-normal">
+	<body class="bg-white w-full h-screen font-leading-normal tracking-normal">
 		<div class="flex flex-col justify-between ">
 			<div class="basis-1/12">
 				{% block nav %} 
