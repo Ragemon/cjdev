@@ -17,7 +17,7 @@ class PostContentInline(admin.StackedInline):
     # }
     
 class PostAdmin(admin.ModelAdmin):
-    inlines = [ PostContentInline ]
+    # inlines = [ PostContentInline ]
     
     list_display = ['title','update','created','status', 'category', ]
     prepopulated_fields = {'slug':('title',)}

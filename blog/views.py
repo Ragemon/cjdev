@@ -38,7 +38,7 @@ class ArticleListView(ListView):
         status='published', category='blog').order_by('-update')
 
     template_name = ('blog/post_list.html')
-    paginate_by = 4
+    paginate_by = 10
 
 
 
