@@ -24,7 +24,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="title" content="{{object.title|safe}}">
+		{% comment %} <meta name="title" content="{{object.title|safe}}"> {% endcomment %}
 		<meta name="description" content="{{object.subcontent|striptags}}">
 		<meta property="article:published_time" content="{{object.created|striptags}}" >
 		<meta property="article:modified_time" content="{{object.update|striptags}}">
