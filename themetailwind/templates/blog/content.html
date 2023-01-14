@@ -3,9 +3,11 @@
 {% if obj.category == "blog" %}
   <div class="md:mb-5 md:border mt-5 pt-4 flex flex-col shadow-md md:mb-5 bg-white-900">
         <div class="font-bold font-xl text-black px-4">
-          <heading><a href="{% url 'blog:article_detail' obj.id obj.slug %}" id="" >
-           {{ obj.title|title }}
-          </a></heading>
+          <h1>
+            <heading><a href="{% url 'blog:article_detail' obj.id obj.slug %}" id="" >
+            {{ obj.title|title }}
+            </a></heading>
+          </h1>
         </div>
       
         <p></p>
