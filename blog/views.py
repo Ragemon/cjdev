@@ -35,7 +35,7 @@ class ArticleDetailView(DetailView):
 class ArticleListView(ListView):
     model = Post
     queryset = Post.objects.filter(
-        status='published', category='blog').order_by('-update')
+        status='published', category='blog').order_by('-created')
 
     template_name = ('blog/post_list.html')
     paginate_by = 10
