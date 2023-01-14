@@ -1,10 +1,14 @@
 <div class="border shadow-md md:p-4 pt-5 md:m-4">
     <div class="flex flex-col text-center justify-between items-center">
-        <div class="md:text-6xl text-2xl text-extrabold text-black">{{ object.title }}</div>
+        <h1>
+            <div class="md:text-6xl text-2xl text-extrabold text-black">{{ object.title }}</div>
+        </h1>
         <hr class="m-3">
-        <div class="text-gray-700 mx-3 mb-3">
-            {{ object.subcontent|safe }}
-        </div>
+        <h2>
+            <div class="text-gray-700 mx-3 mb-3">
+                {{ object.subcontent|safe }}
+            </div>
+        </h2>
     </div>
     <p class="text-gray-500 text-xs p-4"><span class=" font-italic">Created on </span>{{ object.created|date }} </p>
  <!-- <p class="lead blog-description"><a href="">Explore more song lists</a></p> -->
