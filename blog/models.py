@@ -8,6 +8,7 @@ from tinymce import models as tinymce_models
 from tinymce.widgets import TinyMCE as tinymce_widgets
 from django import forms
 
+
 # Create your models here.
 from django.urls import reverse
     
@@ -57,7 +58,9 @@ class Post(models.Model):
     class meta:
         ordering = ['id']
 
-
+    def get_absolute_url(self):
+        return reverse("", kwargs={"pk": self.pk})
+    
 
 
 class PostContent(models.Model):

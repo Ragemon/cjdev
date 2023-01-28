@@ -29,6 +29,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG_BOOL")
+
 print(type(DEBUG))
 ALLOWED_HOSTS = ['127.0.0.1', 'deepsyntax.org', 'www.deepsyntax.org', '24.199.110.135']
 
@@ -48,12 +49,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+
     'tinymce',
     'tailwind',
     'themetailwind',
        
 ]
 
+SITE_ID = 1
 
 
 MIDDLEWARE = [

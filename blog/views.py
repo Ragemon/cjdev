@@ -54,12 +54,12 @@ def post_delete(request):
 
 
 def about(request):
-    template = ('blog/about.html')
+    template = ('base/about.html')
     return render(request, template)
 
 
 def privacy_policy(request):
-    template = ('blog/privacy_policy.html')
+    template = ('base/privacy_policy.html')
     return render(request, template)
 
 
