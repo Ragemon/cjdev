@@ -65,5 +65,5 @@ def privacy_policy(request):
 
 
 def license(request):
-    template = ('blog/comments.html')
+    template = ('base/comments.html')
     return render(request, template)
